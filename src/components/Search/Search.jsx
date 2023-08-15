@@ -21,7 +21,6 @@ function Search({setCharacters}) {
             })
         //clear text box
         setQuery('')
-        e.target = query
     }
 
     return (
