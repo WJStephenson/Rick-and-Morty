@@ -31,7 +31,6 @@ function CharacterDetails() {
             <p>Name: {character?.name}</p>
             <p>Gender: {character?.gender}</p>
             <p>Location: {character?.location?.name}</p>
-            <p>Gender: {character?.gender}</p>
         </div>
     </div>
   )
