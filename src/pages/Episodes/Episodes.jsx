@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Episodes.css'
 import axios from 'axios'
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
+import { ThemeContext } from '../../contexts/ThemeContext';
+ThemeContext
 
 function Episodes() {
 
@@ -13,6 +15,8 @@ function Episodes() {
   const [selectedOption, setSelectedOption] = useState(1);
   const [selectedEpisode, setSelectedEpisode] = useState('');
   const [characterList, setCharacterList] = useState([]);
+
+  const {darkMode, setDarkMode} = useContext(ThemeContext)
 
   useEffect(
     () => {
@@ -57,7 +61,7 @@ function Episodes() {
   }
 
   return (
-    <div className='episodes-container'>
+    <div className={darkMode?'episodes-container episodes-dark':'episodes-container'}>
       <div>
         <label>Select an episode</label>
         <select onChange={handleSelectChange}>

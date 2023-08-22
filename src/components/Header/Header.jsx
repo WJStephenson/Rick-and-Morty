@@ -1,15 +1,28 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './Header.css'
+import { Link } from 'react-router-dom';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 function Header() {
+  //create state to control dark mode
+
+  //const [ darkMode, setDarkMode ] = useState(false);
+  //change to global context
+  const {darkMode, setDarkMode} = useContext(ThemeContext)
+
+
   return (
-    <div className="header-container">
+    <div className={darkMode?"header-container header-dark":"header-container"}>
         <div>
-            <a href="/" style={{marginRight: "10px"}}>Home</a>
-            <a href="/about" style={{marginRight: "10px"}}>About</a>
-            <a href="/episodes">Episodes</a>
+            <Link to="/" style={{marginRight: "10px"}}>Home</Link>
+            <Link to="/about" style={{marginRight: "10px"}}>About</Link>
+            <Link to="/episodes">Episodes</Link>
         </div>
-        <button className="theme-button">Dark Mode</button>
+        <button className={darkMode?"theme-button theme-button-dark":"theme-button"} onClick={() => setDarkMode(!darkMode)}> 
+          {
+            darkMode?"Light Mode":"Dark Mode"
+          }
+        </button>
     </div>
   )
 }

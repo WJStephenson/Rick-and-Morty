@@ -15,7 +15,7 @@ function Search({setCharacters}) {
             .then(res => setCharacters(res.data.results))
             .catch(err => {
                 if(err.response.status === 404) {
-                    alert(`No characters names ${query}`)
+                    alert(`No characters named ${query}`)
                 }
                 console.log(err)
             })

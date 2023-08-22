@@ -30,3 +30,8 @@
 .episodes-container form{
     padding:0 25px;
 }
+
+.episodes-dark{
+    background-color: black;
+    color:white;
+ }
