@@ -13,11 +13,9 @@ function Homepage() {
   //https://rickandmortyapi.com/api/character
   useEffect(
     () => {
-      console.log('Homepage loaded')
       //make api call to get characters
       axios.get(`https://rickandmortyapi.com/api/character`)
         .then(res => {
-          console.log(res.data.results)
           //store characters in state
           setCharacters(res.data.results)
         })
